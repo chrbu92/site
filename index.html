@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loading-screen">
+        <div class="terminal-loading">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="btn-close"></span>
+                    <span class="btn-minimize"></span>
+                    <span class="btn-maximize"></span>
+                </div>
+                <div class="terminal-title">portfolio.sh</div>
+            </div>
+            <div class="terminal-body">
+                <div class="loading-line">
+                    <span class="prompt">$</span> 
+                    <span class="command">git clone https://github.com/your-username/portfolio.git</span>
+                </div>
+                <div class="loading-line">
+                    <span class="loading-text">Cloning into 'portfolio'...</span>
+                </div>
+                <div class="loading-line">
+                    <span class="loading-text">Loading experience data...</span>
+                </div>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-bracket">&lt;</span>
+                <span class="brand-name">YourName</span>
+                <span class="brand-bracket">/&gt;</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">.about()</a>
+                <a href="#projects" class="nav-link">.projects()</a>
+                <a href="#experience" class="nav-link">.experience()</a>
+                <a href="#contact" class="nav-link">.contact()</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="grid-pattern"></div>
+            <div class="floating-elements">
+                <div class="floating-element">01</div>
+                <div class="floating-element">10</div>
+                <div class="floating-element">11</div>
+                <div class="floating-element">00</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="typing-text">Hello, World!</span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <h1 class="hero-title">
+                        I'm <span class="highlight">Your Name</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        <span class="code-keyword">const</span> 
+                        <span class="code-variable">role</span> 
+                        <span class="code-operator">=</span> 
+                        <span class="code-string">"Full Stack Developer"</span>
+                    </h2>
+                    <p class="hero-description">
+                        Building scalable web applications and solving complex problems with clean, efficient code. 
+                        Passionate about creating digital experiences that make a difference.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i>
+                            View Projects
+                        </a>
+                        <a href="/resume.pdf" class="btn btn-secondary" download>
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <div class="image-frame">
+                            <img src="https://via.placeholder.com/400x400/0f172a/3b82f6?text=Your+Photo" alt="Your Name" id="profile-image">
+                            <div class="image-overlay">
+                                <div class="code-snippet">
+                                    <span class="code-comment">// Always learning</span><br>
+                                    <span class="code-keyword">while</span>(<span class="code-variable">alive</span>) {<br>
+                                    &nbsp;&nbsp;<span class="code-variable">learn</span>();<br>
+                                    &nbsp;&nbsp;<span class="code-variable">code</span>();<br>
+                                    &nbsp;&nbsp;<span class="code-variable">improve</span>();<br>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span>Available for opportunities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-number">01.</span>
+                    About Me
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate software engineer with a love for creating elegant solutions to complex problems. 
+                        My journey in tech started with curiosity and has evolved into a career focused on building 
+                        scalable, user-centered applications.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me exploring new technologies, contributing to open source 
+                        projects, or sharing knowledge with the developer community. I believe in continuous learning 
+                        and staying at the forefront of technological innovation.
+                    </p>
+                    <div class="tech-stack">
+                        <h3>Technologies I work with:</h3>
+                        <div class="tech-tags" id="tech-stack">
+                            <!-- Technologies will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-label">Cups of Coffee</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-number" data-count="999">0</div>
+                            <div class="stat-label">Bugs Fixed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-number">02.</span>
+                    Featured Projects
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+            <div class="projects-footer">
+                <a href="https://github.com/your-username" class="btn btn-outline" target="_blank">
+                    <i class="fab fa-github"></i>
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-number">03.</span>
+                    Work Experience
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="git-timeline">
+                <div class="timeline-header">
+                    <div class="timeline-controls">
+                        <button class="timeline-btn active" data-branch="main">
+                            <i class="fas fa-code-branch"></i>
+                            main
+                        </button>
+                        <button class="timeline-btn" data-branch="education">
+                            <i class="fas fa-graduation-cap"></i>
+                            education
+                        </button>
+                        <button class="timeline-btn" data-branch="projects">
+                            <i class="fas fa-project-diagram"></i>
+                            side-projects
+                        </button>
+                        <button class="timeline-btn" data-branch="personal">
+                            <i class="fas fa-heart"></i>
+                            personal
+                        </button>
+                    </div>
+                    <div class="timeline-info">
+                        <span class="commit-count">
+                            <i class="fas fa-history"></i>
+                            <span id="commit-count">0</span> commits
+                        </span>
+                    </div>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-branch main-branch active" data-branch="main">
+                        <!-- Main experience timeline will be populated by JavaScript -->
+                    </div>
+                    <div class="timeline-branch education-branch" data-branch="education">
+                        <!-- Education timeline will be populated by JavaScript -->
+                    </div>
+                    <div class="timeline-branch projects-branch" data-branch="projects">
+                        <!-- Projects timeline will be populated by JavaScript -->
+                    </div>
+                    <div class="timeline-branch personal-branch" data-branch="personal">
+                        <!-- Personal timeline will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-number">04.</span>
+                    Get In Touch
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <h3>Let's build something amazing together</h3>
+                    <p>
+                        I'm always interested in hearing about new opportunities, 
+                        interesting projects, or just connecting with fellow developers. 
+                        Feel free to reach out!
+                    </p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>your.email@example.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/your-profile" class="contact-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/your-username" class="contact-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://twitter.com/your-handle" class="contact-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Your Name. Built with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+                <div class="footer-links">
+                    <a href="#top">Back to Top</a>
+                    <span>•</span>
+                    <a href="https://github.com/your-username/portfolio" target="_blank">View Source</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
