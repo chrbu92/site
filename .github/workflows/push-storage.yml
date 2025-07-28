@@ -20,10 +20,9 @@ jobs:
         audience: 'https://iam.googleapis.com/projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
         workload_identity_provider: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
         service_account: 'gh-svc@planeproof-7ad94.iam.gserviceaccount.com'
-        owner: 'chrbu92'
 
     - id: 'upload-folder'
       uses: 'google-github-actions/upload-cloud-storage@v2'
       with:
-        path: '.'
+        path: 'site/'
         destination: 'cbulloss'
