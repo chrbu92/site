@@ -1,6 +1,6 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is pushing a release to google 🚀
-on: [release]
+on: [push]
 jobs:
   deploy:
     environment: 'prod'
