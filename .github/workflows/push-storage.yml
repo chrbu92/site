@@ -1,0 +1,25 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is pushing a release to google 🚀
+on: [release]
+jobs:
+  deploy:
+    environment: 'prod'
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - id: 'checkout'
+      uses: 'actions/checkout@v4'
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        workload_identity_provider: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-provider'
+        service_account: 'gh-svc@planeproof-7ad94.iam.gserviceaccount.com'
+
+    - id: 'upload-folder'
+      uses: 'google-github-actions/upload-cloud-storage@v2'
+      with:
+        path: '/'
+        destination: 'cbulloss'
