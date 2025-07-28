@@ -1,6 +1,7 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is pushing a release to google 🚀
-on: [push]
+on: 
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
