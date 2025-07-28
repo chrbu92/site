@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is pushing a release to google 🚀
 on: [push]
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment: 'prod'
     permissions:
       contents: 'read'
