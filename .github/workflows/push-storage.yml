@@ -17,8 +17,7 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
-        audience: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-provider'
-        aud: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-provider'
+        audience: '//iam.googleapis.com/projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
         workload_identity_provider: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-provider'
         service_account: 'gh-svc@planeproof-7ad94.iam.gserviceaccount.com'
 
