@@ -1,0 +1,26 @@
+name: Test GCS Access
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: 'prod'
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+    - uses: 'actions/checkout@v4'
+    
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        workload_identity_provider: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
+        service_account: 'gh-svc@planeproof-7ad94.iam.gserviceaccount.com'
+    
+    - name: 'Test bucket access'
+      run: |
+        echo "Testing bucket access..."
+        gsutil ls gs://cbulloss || echo "Failed to list bucket"
+        echo "test content" > test.txt
+        gsutil cp test.txt gs://cbulloss/test.txt || echo "Failed to upload"
+        gsutil rm gs://cbulloss/test.txt || echo "Failed to delete"
+        echo "Test complete"
