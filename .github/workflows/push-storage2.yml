@@ -1,7 +1,7 @@
-name: Test GCS Access
+name: Debug Authentication
 on: workflow_dispatch
 jobs:
-  test:
+  debug:
     runs-on: ubuntu-latest
     environment: 'prod'
     permissions:
@@ -13,15 +13,34 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
-        audience: 'https://iam.googleapis.com/projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
         workload_identity_provider: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
         service_account: 'gh-svc@planeproof-7ad94.iam.gserviceaccount.com'
     
-    - name: 'Test bucket access'
+    - name: 'Debug Authentication'
       run: |
-        echo "Testing bucket access..."
-        gsutil ls gs://cbulloss || echo "Failed to list bucket"
-        echo "test content" > test.txt
-        gsutil cp test.txt gs://cbulloss/test.txt || echo "Failed to upload"
-        gsutil rm gs://cbulloss/test.txt || echo "Failed to delete"
-        echo "Test complete"
+        echo "=== Environment Variables ==="
+        env | grep -E "(GOOGLE|GCLOUD|CLOUDSDK)" || true
+        
+        echo "=== Credentials File Content ==="
+        if [ -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
+          echo "Credentials file exists at: $GOOGLE_APPLICATION_CREDENTIALS"
+          cat "$GOOGLE_APPLICATION_CREDENTIALS" | jq '.' || cat "$GOOGLE_APPLICATION_CREDENTIALS"
+        else
+          echo "No credentials file found"
+        fi
+        
+        echo "=== Testing gcloud auth ==="
+        gcloud auth list || true
+        
+        echo "=== Testing token generation ==="
+        gcloud auth print-access-token || echo "Failed to get access token"
+        
+        echo "=== Testing with curl ==="
+        TOKEN=$(gcloud auth print-access-token 2>/dev/null || echo "NO_TOKEN")
+        if [ "$TOKEN" != "NO_TOKEN" ]; then
+          echo "Got token, testing bucket access..."
+          curl -H "Authorization: Bearer $TOKEN" \
+               "https://storage.googleapis.com/storage/v1/b/cbulloss/o" || echo "Curl failed"
+        else
+          echo "No token available"
+        fi
