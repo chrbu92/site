@@ -23,5 +23,7 @@ jobs:
     - id: 'upload-folder'
       uses: 'google-github-actions/upload-cloud-storage@v2'
       with:
-        path: 'site2'
+        path: '.'
         destination: 'cbulloss'
+        process_gcloudignore: true
+        parent: false
