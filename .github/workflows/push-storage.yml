@@ -45,14 +45,33 @@ jobs:
                     "https://storage.googleapis.com/storage/v1/b/cbulloss/o" | \
                     jq -r '.items[]?.name // empty' | sort)
         
-        # Delete files not in uploaded list
-        while read -r file; do
+        # Find and count files to delete
+        FILES_TO_DELETE=""
+        echo "$ALL_FILES" | while IFS= read -r file; do
           if [ -n "$file" ] && ! echo "$UPLOADED" | grep -Fxq "$file"; then
-            echo "Deleting old file: $file"
-            curl -X DELETE -H "Authorization: Bearer $TOKEN" \
-                "https://storage.googleapis.com/storage/v1/b/cbulloss/o/$(echo "$file" | jq -Rr @uri)"
+            echo "$file"
           fi
-        echo "✅ Cleanup complete - deleted old files"
+        done > /tmp/files_to_delete.txt
+        
+        # Count files to delete
+        if [ -s /tmp/files_to_delete.txt ]; then
+          filesCount=$(wc -l < /tmp/files_to_delete.txt)
+          echo "🗑️ Found $filesCount old files to delete:"
+          
+          # Delete each file
+          while IFS= read -r file; do
+            echo "Deleting old file: $file"
+            curl -s -X DELETE -H "Authorization: Bearer $TOKEN" \
+                "https://storage.googleapis.com/storage/v1/b/cbulloss/o/$(echo "$file" | jq -Rr @uri)"
+          done < /tmp/files_to_delete.txt
+          
+          echo "✅ Cleanup complete - deleted $filesCount old files"
+        else
+          echo "✅ No old files to delete"
+        fi
+        
+        # Clean up temp file
+        rm -f /tmp/files_to_delete.txt
 
     - name: 'Deployment complete'
       run: |
