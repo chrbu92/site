@@ -2,7 +2,8 @@ name: Deploy Website to GCS
 run-name: ${{ github.actor }} is deploying website 🚀
 on: 
   workflow_dispatch:
-  [release]
+  release:
+    types: [published]
 
 jobs:
   deploy:
