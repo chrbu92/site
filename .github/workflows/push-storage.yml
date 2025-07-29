@@ -46,16 +46,13 @@ jobs:
                     jq -r '.items[]?.name // empty' | sort)
         
         # Delete files not in uploaded list
-        filesDeleted=0
         while read -r file; do
           if [ -n "$file" ] && ! echo "$UPLOADED" | grep -Fxq "$file"; then
             echo "Deleting old file: $file"
             curl -X DELETE -H "Authorization: Bearer $TOKEN" \
                 "https://storage.googleapis.com/storage/v1/b/cbulloss/o/$(echo "$file" | jq -Rr @uri)"
-            ((filesDeleted++))
           fi
-        done < <(echo "$ALL_FILES")
-        echo "✅ Cleanup complete - deleted $filesDeleted old files"
+        echo "✅ Cleanup complete - deleted old files"
 
     - name: 'Deployment complete'
       run: |
