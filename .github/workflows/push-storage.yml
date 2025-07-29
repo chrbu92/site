@@ -47,15 +47,15 @@ jobs:
         
         # Delete files not in uploaded list
         filesDeleted=0
-        echo "$ALL_FILES" | while read -r file; do
+        while read -r file; do
           if [ -n "$file" ] && ! echo "$UPLOADED" | grep -Fxq "$file"; then
             echo "Deleting old file: $file"
             curl -X DELETE -H "Authorization: Bearer $TOKEN" \
                 "https://storage.googleapis.com/storage/v1/b/cbulloss/o/$(echo "$file" | jq -Rr @uri)"
-            filesDeleted++
+            ((filesDeleted++))
           fi
-        done
-        echo "✅ Cleanup complete"
+        done < <(echo "$ALL_FILES")
+        echo "✅ Cleanup complete - deleted $filesDeleted old files"
 
     - name: 'Deployment complete'
       run: |
