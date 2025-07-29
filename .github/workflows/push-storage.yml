@@ -1,7 +1,9 @@
-name: Push to google storage
-run-name: ${{ github.actor }} is pushing a release to google 🚀
+name: Deploy Website to GCS
+run-name: ${{ github.actor }} is deploying website 🚀
 on: 
   workflow_dispatch:
+  [release]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,11 +21,40 @@ jobs:
       with:
         workload_identity_provider: 'projects/871402321197/locations/global/workloadIdentityPools/default-workload-pool/providers/default-workload-pool'
         service_account: 'gh-svc@planeproof-7ad94.iam.gserviceaccount.com'
-
-    - id: 'upload-folder'
+        
+    - id: 'upload-website'
       uses: 'google-github-actions/upload-cloud-storage@v2'
       with:
         path: '.'
         destination: 'cbulloss'
+        predefinedAcl: 'publicRead'
         process_gcloudignore: true
         parent: false
+
+    - name: 'Clean up old files'
+      run: |
+        TOKEN=$(gcloud auth print-access-token)
+        
+        # Get uploaded files (remove gs://cbulloss/ prefix)
+        UPLOADED=$(echo "${{ steps.upload-website.outputs.uploaded }}" | \
+                  sed 's|gs://cbulloss/||g' | tr ',' '\n' | sort)
+        
+        # Get all bucket files
+        ALL_FILES=$(curl -s -H "Authorization: Bearer $TOKEN" \
+                    "https://storage.googleapis.com/storage/v1/b/cbulloss/o" | \
+                    jq -r '.items[]?.name // empty' | sort)
+        
+        # Delete files not in uploaded list
+        echo "$ALL_FILES" | while read -r file; do
+          if [ -n "$file" ] && ! echo "$UPLOADED" | grep -Fxq "$file"; then
+            echo "Deleting old file: $file"
+            curl -X DELETE -H "Authorization: Bearer $TOKEN" \
+                "https://storage.googleapis.com/storage/v1/b/cbulloss/o/$(echo "$file" | jq -Rr @uri)"
+          fi
+        done
+        echo "✅ Cleanup complete"
+
+    - name: 'Deployment complete'
+      run: |
+        echo "🎉 Website deployed successfully!"
+        echo "📁 Files uploaded: ${{ steps.upload-website.outputs.uploaded }}"
