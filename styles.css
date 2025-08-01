@@ -554,11 +554,13 @@ section {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 25px;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
     display: flex;
     align-items: center;
     gap: var(--space-sm);
     font-size: 0.875rem;
+    white-space: nowrap;
+    min-width: max-content;
 }
 
 .status-dot {
@@ -931,6 +933,22 @@ section {
     transition: var(--transition);
 }
 
+.commit-content {
+    width: 100%;
+}
+
+.commit-lower-section {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    margin-top: var(--space-lg);
+}
+
+.commit-lower-content {
+    flex: 1;
+    min-width: 0; /* Allows flex item to shrink below its content size */
+}
+
 .timeline-commit:hover {
     border-color: var(--accent-primary);
     transform: translateX(10px);
@@ -1031,14 +1049,13 @@ section {
 /* Timeline Images */
 .commit-image {
     position: relative;
-    width: 100%;
-    max-width: 400px;
+    width: 250px;
     height: 200px;
     border-radius: var(--border-radius);
     overflow: hidden;
-    margin-bottom: var(--space-lg);
     cursor: pointer;
     border: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent image from shrinking */
 }
 
 .commit-image img {
@@ -1288,12 +1305,30 @@ section {
         --space-2xl: 1.5rem;
     }
 
+    .nav-container {
+        position: relative;
+    }
+
     .nav-menu {
         display: none;
     }
 
     .nav-toggle {
         display: flex;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: var(--space-lg);
+        gap: var(--space-lg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
     .hero-content {
@@ -1326,6 +1361,25 @@ section {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Stack timeline items vertically on mobile */
+    .commit-lower-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .commit-image {
+        width: 100%;
+        max-width: 400px;
+        margin: var(--space-lg) auto 0;
+        align-self: center;
+    }
+
+    /* Make status indicator smaller on mobile */
+    .status-indicator {
+        font-size: 0.75rem;
+        padding: var(--space-xs) var(--space-md);
     }
 
     .timeline-header {
