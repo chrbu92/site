@@ -431,6 +431,11 @@ class Portfolio {
         const counters = document.querySelectorAll('.stat-number');
         let hasAnimated = false;
 
+        // Helper function to format numbers with commas
+        const formatNumber = (num) => {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        };
+
         const animateCounters = () => {
             if (hasAnimated) return;
             hasAnimated = true;
@@ -444,10 +449,10 @@ class Portfolio {
                 const updateCounter = () => {
                     if (current < target) {
                         current += increment;
-                        counter.textContent = Math.floor(current);
+                        counter.textContent = formatNumber(Math.floor(current));
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.textContent = target;
+                        counter.textContent = formatNumber(target);
                     }
                 };
 
