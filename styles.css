@@ -564,7 +564,7 @@ section {
 .status-dot {
     width: 8px;
     height: 8px;
-    background: var(--accent-secondary);
+    background: var(--accent-warning);
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
@@ -668,6 +668,50 @@ section {
 }
 
 /* Projects Section */
+.construction-notice {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-xl);
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--space-3xl);
+}
+
+.construction-icon {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    font-size: 2rem;
+    color: var(--accent-warning);
+    margin-bottom: var(--space-lg);
+}
+
+.construction-notice h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    font-family: var(--font-mono);
+}
+
+.construction-notice p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.construction-crane {
+    font-size: 3rem;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
