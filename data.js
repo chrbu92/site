@@ -275,7 +275,7 @@ const portfolioData = {
                 startDate: "2008-08",
                 endDate: "2020-08",
                 location: "VA",
-                image: "img/ems_2.png",
+                image: "img/ems_3.png",
                 description: "I earned my EMT certification in high school and continued volunteering in college.  I maintained it for over 10 years before letting it lapse.",
                 achievements: [
                     "8k+ hours volunteered",
