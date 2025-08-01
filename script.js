@@ -214,7 +214,7 @@ class Portfolio {
         // Populate timeline branches
         this.populateTimeline('main', portfolioData.experience.main);
         this.populateTimeline('education', portfolioData.experience.education);
-        this.populateTimeline('projects', portfolioData.experience.projects);
+        // this.populateTimeline('projects', portfolioData.experience.projects);
         this.populateTimeline('personal', portfolioData.experience.personal);
         
         // Set initial commit count
@@ -225,9 +225,16 @@ class Portfolio {
         const branch = document.querySelector(`.timeline-branch[data-branch="${branchName}"]`);
         if (!branch || !experiences) return;
 
-        experiences.forEach((exp, index) => {
+        // Sort experiences by ID alphabetically (ascending order)
+        const sortedExperiences = [...experiences].sort((b,a) => {
+            return a.id.localeCompare(b.id);
+        });
+        console.log(sortedExperiences);
+
+        sortedExperiences.forEach((exp, index) => {
+            console.log(exp.id);
             const timelineItem = this.createTimelineItem(exp);
-            timelineItem.style.animationDelay = `${index * 0.1}s`;
+            timelineItem.style.animationDelay = `${index * 0.05}s`;
             branch.appendChild(timelineItem);
         });
     }
