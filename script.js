@@ -78,6 +78,14 @@ class Portfolio {
                 navMenu.classList.toggle('active');
             });
         }
+
+        // Close mobile menu when nav link is clicked
+        const navLinksInMenu = navMenu?.querySelectorAll('.nav-link');
+        navLinksInMenu?.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
     }
 
     setupTypingEffect() {
@@ -87,7 +95,7 @@ class Portfolio {
         const messages = [
             'Hello, World!',
             'console.log("Hi!");',
-            'print("Welcome!");',
+            'System.out.println("Welcome!");',
             'echo "Hello!";'
         ];
 
@@ -256,36 +264,42 @@ class Portfolio {
         
         item.innerHTML = `
             <div class="timeline-commit">
-                ${experience.image ? `
-                    <div class="commit-image">
-                        <img src="${experience.image}" alt="${experience.position}" loading="lazy">
-                        <div class="image-overlay">
-                            <i class="fas fa-expand"></i>
+                <div class="commit-content">
+                    <div class="commit-header">
+                        <div class="commit-info">
+                            <h3>${experience.position}</h3>
+                            <div class="commit-company">${experience.company}</div>
+                            <div class="commit-period">${startDate} - ${endDate}</div>
+                        </div>
+                        <div class="commit-meta">
+                            <div class="commit-date">${experience.startDate}</div>
+                            <div class="commit-location">${experience.location}</div>
                         </div>
                     </div>
-                ` : ''}
-                <div class="commit-header">
-                    <div class="commit-info">
-                        <h3>${experience.position}</h3>
-                        <div class="commit-company">${experience.company}</div>
-                        <div class="commit-period">${startDate} - ${endDate}</div>
+                    <p class="commit-description">${experience.description}</p>
+                    <div class="commit-lower-section">
+                        <div class="commit-lower-content">
+                            ${experience.achievements ? `
+                                <div class="commit-achievements">
+                                    <h4>Key Achievements</h4>
+                                    <ul class="achievements-list">
+                                        ${experience.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            <div class="commit-technologies">
+                                ${experience.technologies.map(tech => `<span class="commit-tech">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                        ${experience.image ? `
+                            <div class="commit-image">
+                                <img src="${experience.image}" alt="${experience.position}" loading="lazy">
+                                <div class="image-overlay">
+                                    <i class="fas fa-expand"></i>
+                                </div>
+                            </div>
+                        ` : ''}
                     </div>
-                    <div class="commit-meta">
-                        <div class="commit-date">${experience.startDate}</div>
-                        <div class="commit-location">${experience.location}</div>
-                    </div>
-                </div>
-                <p class="commit-description">${experience.description}</p>
-                ${experience.achievements ? `
-                    <div class="commit-achievements">
-                        <h4>Key Achievements</h4>
-                        <ul class="achievements-list">
-                            ${experience.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
-                        </ul>
-                    </div>
-                ` : ''}
-                <div class="commit-technologies">
-                    ${experience.technologies.map(tech => `<span class="commit-tech">${tech}</span>`).join('')}
                 </div>
             </div>
         `;

@@ -2,10 +2,10 @@
 
 const portfolioData = {
     personal: {
-        name: "Your Name",
-        title: "Full Stack Developer",
-        email: "your.email@example.com",
-        location: "Your City, State",
+        name: "Christian Bulloss",
+        title: "Engineering Manager",
+        email: "cbulloss@gmail.com",
+        location: "Raleigh, NC",
         profileImage: "https://via.placeholder.com/400x400/0f172a/3b82f6?text=Your+Photo"
     },
 
@@ -164,13 +164,13 @@ const portfolioData = {
             {
                 id: "exp-6",
                 company: "ForeFlight",
-                position: "Software Engineer -> Senior Software Engineer",
+                position: "(Senior) Software Engineer",
                 startDate: "2022-09",
                 endDate: "2025-02",
                 location: "Austin, TX (Remote)",
                 description: "Built high-quality, scalable full-stack applications for the Personal Aviation team, focusing on the Logbook Application.",
                 achievements: [
-                    "Architected and developed the Logbook Application using React, Java, Spring Boot, and PostgreSQL",
+                    "Architected and developed the Logbook Application using modern web development patterns",
                     "Implemented scalable application development patterns leveraging AWS services (S3, RDS, CloudFront, EC2, CDK)",
                     "Scaled development team from individual contributor to four full-stack developers",
                     "Mentored junior developers and led technical project planning and stakeholder coordination",
@@ -193,7 +193,7 @@ const portfolioData = {
                     "Conduct regular 1-on-1s focused on career development and performance optimization",
                     "Lead project management initiatives ensuring proper scope definition and delivery timelines",
                     "Develop and implement team assignment strategies maximizing individual strengths and project outcomes",
-                    "Drive technical architecture decisions balancing innovation with reliability",
+                    "Drive technical architecture decisions balancing project needs with reliability, scalability, and timeline",
                     "Foster collaborative culture promoting knowledge sharing and continuous improvement"
                 ],
                 technologies: ["Leadership", "Project Management", "Technical Strategy", "Career Development", "Team Building", "Agile"],
@@ -238,13 +238,13 @@ const portfolioData = {
                 startDate: "2024-06",
                 endDate: "🤔",
                 location: "Home, NC",
-                image: "https://via.placeholder.com/600x400/1e293b/10b981?text=Home+Office+Setup",
+                image: "img/office_construction.png",
                 description: "Ongoing construction project, building a ~200 sq. ft. home office from the ground up. ",
                 achievements: [
                     "Cleared and prepared site",
                     "Foundation using nine 50\" Pylex Helical Piers with 16' 4x4 beams to support the structure",
                     "Bottom up framing, roofing, insulation, etc",
-                    "Conditioned using a 9000k BTU Mini Split 😎🧊",
+                    "Conditioned using a 9000k BTU Mini Split <i class=\"fas fa-fan\"></i>",
                     "Wrap around 120 sq ft porch"
                 ],
                 technologies: ["Lots of windows"],
@@ -257,6 +257,7 @@ const portfolioData = {
                 startDate: "2021-01",
                 endDate: "",
                 location: "5500'",
+                image: "img/aviation.png",
                 description: "I have been flying light aircraft since 2021.",
                 achievements: [
                     "Private Pilot License, 2022",
@@ -270,22 +271,22 @@ const portfolioData = {
             {
                 id: "personal-1",
                 company: "Various",
-                position: "EMT",
+                position: "Volunteer EMT",
                 startDate: "2008-08",
                 endDate: "2020-08",
                 location: "VA",
-                image: "https://via.placeholder.com/600x400/1e293b/f59e0b?text=Road+Trip+Adventure",
+                image: "img/ems_2.png",
                 description: "I earned my EMT certification in high school and continued volunteering in college.  I maintained it for over 10 years before letting it lapse.",
                 achievements: [
-                    "10k+ hours volunteered",
-                    "Advanced EMT Certificate",
-                    "Responsible for field training new EMTs as a preceptor",
+                    "8k+ hours volunteered",
+                    "Provide emergency patient care in an ambulance setting",
+                    "Provided field training for new EMTs as a preceptor",
                     "Technical Rescue: Vehicle Extrication, Swift Water, and High Angle Ropes",
                     "Individual ambulance crew leadership",
                     "Operational control as a line officer/supervisor",
                     "Managed complex incident response in high-pressure situations"
                 ],
-                technologies: ["Community Service", "Medicine", "Leadership"],
+                technologies: ["Community Service", "Advanced EMT Certificate", "Medicine", "Leadership"],
                 type: "personal"
             }
         ]
