@@ -17,8 +17,19 @@ const portfolioData = {
     ],
 
     projects: [
+        {
+            id: 1,
+            title: "Blog & Thoughts",
+            description: "Personal blog covering software engineering, leadership insights, project updates, and explorations with LLMs and emerging technologies.",
+            image: "img/blog_hero.png",
+            technologies: ["Writing", "Leadership", "Software Engineering", "LLMs"],
+            liveUrl: "/blog.html",
+            linkText: "Blog",
+            featured: true,
+            isBlog: true
+        },
         // {
-        //     id: 1,
+        //     id: 2,
         //     title: "E-Commerce Platform",
         //     description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product management, and order processing.",
         //     image: "https://via.placeholder.com/600x400/1e293b/3b82f6?text=E-Commerce+Platform",

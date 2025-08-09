@@ -73,6 +73,26 @@ jobs:
         # Clean up temp file
         rm -f /tmp/files_to_delete.txt
 
+#### Likely culprit if invalidation step stops working
+#Note: permissions [compute.urlMaps.invalidateCache] are in 'TESTING' stage which means the functionality is not mature and they can go away in the future. 
+#This can break your workflows, so do not use them in production systems!
+####
+
+    - name: Invalidate CDN Cache
+      run: |
+        # Invalidate all cached content
+        gcloud compute url-maps invalidate-cdn-cache cb-alb \
+          --path="/*" \
+          --global
+
+        # Or be more specific - invalidate common file types
+        gcloud compute url-maps invalidate-cdn-cache cb-alb \
+          --path="/index.html" \
+          --path="/styles.css" \
+          --path="/script.js" \
+          --path="/data.js" \
+          --global
+
     - name: 'Deployment complete'
       run: |
         echo "🎉 Website deployed successfully!"
