@@ -1,38 +1,5 @@
 const posts = {
   "posts": [
-    // {
-    //   "id": "getting-started-with-llms",
-    //   "title": "Getting Started with Large Language Models in Software Development",
-    //   "description": "Explore practical applications of LLMs in development workflows, from code generation to debugging assistance.",
-    //   "category": "LLM Usage",
-    //   "date": "2024-03-15",
-    //   "readTime": "5 min read",
-    //   "tags": ["LLM", "Development", "Productivity"],
-    //   "file": "getting-started-with-llms.md",
-    //   "featured": true
-    // },
-    // {
-    //   "id": "leadership-lessons-from-engineering",
-    //   "title": "Leadership Lessons from Engineering Management",
-    //   "description": "Key insights and principles learned during the transition from individual contributor to engineering manager.",
-    //   "category": "Leadership",
-    //   "date": "2024-02-20",
-    //   "readTime": "7 min read",
-    //   "tags": ["Leadership", "Management", "Career", "Team Building"],
-    //   "file": "leadership-lessons-from-engineering.md",
-    //   "featured": true
-    // },
-    // {
-    //   "id": "home-office-build-update",
-    //   "title": "Home Office Build: A Developer's DIY Journey",
-    //   "description": "Following the construction of a 200 sq ft dedicated workspace, with lessons learned applying software engineering principles to physical construction.",
-    //   "category": "Personal Projects",
-    //   "date": "2024-01-10",
-    //   "readTime": "6 min read",
-    //   "tags": ["DIY", "Construction", "Workspace", "Project Management"],
-    //   "file": "home-office-build-update.md",
-    //   "featured": false
-    // }
     {
       "id": "llms-usage",
       "title": "LLMs: A Productivity Tool for Software Engineers",
