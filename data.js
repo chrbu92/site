@@ -19,12 +19,12 @@ const portfolioData = {
     projects: [
         {
             id: 1,
-            title: "Blog & Thoughts",
-            description: "Personal blog covering software engineering, leadership insights, project updates, and explorations with LLMs and emerging technologies.",
+            title: "Insights",
+            description: "My thoughts covering software engineering, leadership insights, project updates, and explorations with LLMs and emerging technologies.",
             image: "img/blog_hero.png",
             technologies: ["Writing", "Leadership", "Software Engineering", "LLMs"],
-            liveUrl: "/blog.html",
-            linkText: "Blog",
+            liveUrl: "/insights.html",
+            linkText: "Insights",
             featured: true,
             isBlog: true
         },
