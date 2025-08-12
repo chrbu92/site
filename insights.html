@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Thoughts - Christian Bulloss</title>
+    <meta name="description" content="Software engineering insights, leadership lessons, and project updates">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-text">cbulloss</span>
+                    <span class="brand-cursor">_</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">← Back to Portfolio</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content">
+                <h1 class="blog-title">
+                    <span class="section-number">📝</span>
+                    Insights
+                </h1>
+                <p class="blog-subtitle">
+                    Software engineering insights, leadership lessons, and explorations with emerging technologies
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="blog-filters">
+        <div class="container">
+            <div class="filter-controls">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-grid-2"></i>
+                    All Posts
+                </button>
+                <button class="filter-btn" data-category="llm-usage">
+                    <span class="category-icon">🤖</span>
+                    LLM Usage
+                </button>
+                <button class="filter-btn" data-category="leadership">
+                    <span class="category-icon">👥</span>
+                    Leadership
+                </button>
+                <button class="filter-btn" data-category="personal-projects">
+                    <span class="category-icon">🛠️</span>
+                    Personal Projects
+                </button>
+                <button class="filter-btn" data-category="technical">
+                    <span class="category-icon">⚙️</span>
+                    Technical
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-grid" id="blog-grid">
+                <!-- Blog posts will be populated by JavaScript -->
+            </div>
+            
+            <!-- Loading State -->
+            <div class="blog-loading" id="blog-loading">
+                <div class="loading-spinner"></div>
+                <p>Loading posts...</p>
+            </div>
+            
+            <!-- Empty State -->
+            <div class="blog-empty" id="blog-empty" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>No posts found</h3>
+                <p>Try selecting a different category or check back later for new content.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Modal -->
+    <div class="blog-modal" id="blog-modal">
+        <div class="blog-modal-backdrop">
+            <div class="blog-modal-content">
+                <div class="blog-modal-header">
+                    <button class="blog-modal-close" id="blog-modal-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="blog-modal-body" id="blog-modal-body">
+                    <!-- Post content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Christian Bulloss. Built with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Portfolio</a>
+                    <a href="https://github.com/chrbu92" class="footer-link" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Blog JavaScript -->
+    <script src="blog/posts.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>

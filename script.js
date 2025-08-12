@@ -155,6 +155,11 @@ class Portfolio {
             projectCard.style.animationDelay = `${index * 0.2}s`;
             projectsGrid.appendChild(projectCard);
         });
+
+        // Add construction notice card
+        const constructionCard = this.createConstructionCard();
+        constructionCard.style.animationDelay = `${featuredProjects.length * 0.2}s`;
+        projectsGrid.appendChild(constructionCard);
     }
 
     createProjectCard(project) {
@@ -169,7 +174,7 @@ class Portfolio {
                         <i class="fab fa-github"></i> Code
                     </a>` : ''}
                     ${project.liveUrl ? `<a href="${project.liveUrl}" class="btn btn-primary" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
+                        <i class="fas fa-external-link-alt"></i> ${project.linkText || "Live Demo"}
                     </a>` : ''}
                 </div>
             </div>
@@ -183,9 +188,37 @@ class Portfolio {
                     ${project.githubUrl ? `<a href="${project.githubUrl}" class="project-link" target="_blank">
                         <i class="fab fa-github"></i> Source Code
                     </a>` : ''}
-                    ${project.liveUrl ? `<a href="${project.liveUrl}" class="project-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    ${project.liveUrl ? `<a href="${project.liveUrl}" style="display:none" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> ${project.linkText || "Live Demo"}
                     </a>` : ''}
+                </div>
+            </div>
+        `;
+        
+        return card;
+    }
+
+    createConstructionCard() {
+        const card = document.createElement('div');
+        card.className = 'project-card construction-project-card';
+        
+        card.innerHTML = `
+            <div class="project-image">
+                <div class="construction-project-content">
+                    <div class="construction-icon">
+                        <i class="fas fa-hard-hat"></i>
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <div class="construction-crane">
+                        🏗️
+                    </div>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">More Projects Coming Soon</h3>
+                <p class="project-description">Additional featured projects and code samples are currently under development. Check back soon!</p>
+                <div class="project-technologies">
+                    <span class="project-tech">In Progress</span>
                 </div>
             </div>
         `;

@@ -17,8 +17,19 @@ const portfolioData = {
     ],
 
     projects: [
+        {
+            id: 1,
+            title: "Insights",
+            description: "My thoughts covering software engineering, leadership insights, project updates, and explorations with LLMs and emerging technologies.",
+            image: "img/blog_hero.png",
+            technologies: ["Writing", "Leadership", "Software Engineering", "LLMs"],
+            liveUrl: "/insights.html",
+            linkText: "Insights",
+            featured: true,
+            isBlog: true
+        },
         // {
-        //     id: 1,
+        //     id: 2,
         //     title: "E-Commerce Platform",
         //     description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product management, and order processing.",
         //     image: "https://via.placeholder.com/600x400/1e293b/3b82f6?text=E-Commerce+Platform",
@@ -275,7 +286,7 @@ const portfolioData = {
                 startDate: "2008-08",
                 endDate: "2020-08",
                 location: "VA",
-                image: "img/ems_3.png",
+                image: "img/ems_2.png",
                 description: "I earned my EMT certification in high school and continued volunteering in college.  I maintained it for over 10 years before letting it lapse.",
                 achievements: [
                     "8k+ hours volunteered",
