@@ -70,5 +70,5 @@ At this point you can get a publicly accessible link to your file from the conso
 
 After following all these steps, it will take some time for your SSL certificate to be processed and your site to be available, I was working at night and found mine was available the next day.
 
-<!-- TODO -->
 ### The last hurdle: Github Actions for automated deployment
+`TODO` 😏
