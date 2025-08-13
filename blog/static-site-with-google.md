@@ -1,13 +1,13 @@
-# Static Site Hosting with Google Storage
-
-*Published: August 5, 2025*  
-*Category: How Tos, Google Cloud*
-
 ## Introduction
 I've had a lot of fun setting up this little website.  Even as a seasoned engineer in the enterprise space, I had such a "wow, this is so cool!" feeling when I first got my site live, and knew immediately that I wanted to share that experience.  Naturally though, like many, my brain got distracted by other aspects of this project: filling out other content on my site, creating and deploying another Spring Boot app to showcase, that my configuration (particularly the ALB) has grown significantly more complex since I first got it up and running.  Still, I want to do my best to share what I learned/how I did it so that others can partake in the joy of creating and publishing content all on your own on the internet.
 
 ## Content Creation
-I want to be very upfront about something: I have used the assistance of Claude Code <i>a lot</i> in the course of developing this site.  I won't go into the depths here (I'll save it for another post), but the tl;dr is that I was able to get a professional looking site generated pretty quick and easily. I knew what I wanted, described it in detailed written form, and asked claude to create the static site.  It's not that I couldn't do that myself, moreso that I didn't have the time available to do it; I used the LLM as a productivity tool to do it faster, then refined the output to get the last ~10% polished (and I think we all should).  I don't think that means anyone should go around [giving LLMs unfettered access to prod](https://www.pcmag.com/news/vibe-coding-fiasco-replite-ai-agent-goes-rogue-deletes-company-database) or even applying suggested actions without really understanding what they're doing.  This is just an evolved and hyper-contextualized version of stackoverflow. <code><\/soapbox></code>.
+I want to be very upfront about something: I have used the assistance of Claude Code <i>a lot</i> in the course of developing this site.  I won't go into the depths here (I'll save it for another post), but the tl;dr is that I was able to get a professional looking site generated pretty quick and easily. I knew what I wanted, described it in detailed written form, and asked claude to create the static site.  It's not that I couldn't do that myself, moreso that I didn't have the time available to do it; I used the LLM as a productivity tool to do it faster, then refined the output to get the last ~10% polished (and I think we all should).  I don't think that means anyone should go around [giving LLMs unfettered access to prod](https://www.pcmag.com/news/vibe-coding-fiasco-replite-ai-agent-goes-rogue-deletes-company-database) or even applying suggested actions without really understanding what they're doing.  This is just an evolved and hyper-contextualized version of stackoverflow. `</soapbox>`.
+
+Here's the prompt I fed in that led to the creation of this masterpiece 
+>  I'd like to create a personal landing page.  I'd like the site to be modern and use tech-forward styling.  I'd like to include an image of myself, a list of links to personal projects, a link to download my resume, and a timeline style representation of my work experience.  I'd like this to be modular so I can easily add/modify entries as I maintain the site over time.  I would like it if the timeline view was evocative of a git branch diagram.
+
+Try it out yourself and see what you create! It's a great reminder of what we can do with vanilla js, html, and css!
 
 ## Resources
 I didn't do anything revolutionary, I think all the steps I used I got out of a handful of how-to's:
