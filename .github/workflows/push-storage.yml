@@ -85,14 +85,6 @@ jobs:
           --path="/*" \
           --global
 
-        # Or be more specific - invalidate common file types
-        gcloud compute url-maps invalidate-cdn-cache cb-alb \
-          --path="/index.html" \
-          --path="/styles.css" \
-          --path="/script.js" \
-          --path="/data.js" \
-          --global
-
     - name: 'Deployment complete'
       run: |
         echo "🎉 Website deployed successfully!"

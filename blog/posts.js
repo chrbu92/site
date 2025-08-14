@@ -6,7 +6,7 @@ const posts = {
       "description": "My thoughts on LLM usage to increase developer productivity",
       "category": "LLM Usage",
       "date": "2025-08-08",
-      "readTime": "6 min read",
+      "readTime": "7 min read",
       "tags": ["LLM", "Development", "Productivity"],
       "file": "llms-usage.md",
       "featured": true
@@ -28,10 +28,21 @@ const posts = {
       "description": "How to host a simple static site using google cloud",
       "category": "Technical",
       "date": "2025-08-06",
-      "readTime": "6 min read",
+      "readTime": "10 min read",
       "tags": ["Technology", "Cloud", "Google"],
       "file": "static-site-with-google.md",
       "featured": false
+    },
+    {
+      "id": "create-artifacts",
+      "title": "Creating Artifacts to Enhance CLI Based LLM Usage",
+      "description": "Leverage .md files or other artifacts to bring a more familiar experience to Agentic/cli based LLM tools",
+      "category": "LLM Usage",
+      "date": "2025-08-12",
+      "readTime": "3 min read",
+      "tags": ["LLM", "Development", "Productivity"],
+      "file": "create-artifacts.md",
+      "featured": true
     }
   ],
   "categories": [

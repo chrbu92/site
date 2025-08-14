@@ -1,8 +1,3 @@
-# Building Blameless Culture: Why Systems Thinking Beats Finger Pointing
-
-*Published: August 7, 2025*  
-*Category: Leadership, Engineering Culture*
-
 ## The Real Cost of Blame
 
 I've worked in engineering organizations across the spectrum – from those where every incident turned into a witch hunt to teams where failure was treated as a learning opportunity. The difference in outcomes isn't subtle; it's transformational. Yet somehow, many engineering organizations still default to blame-first cultures that actively undermine their own success.

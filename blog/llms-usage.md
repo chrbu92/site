@@ -1,8 +1,3 @@
-# LLMs: A Productivity Tool for Software Engineers
-
-*Published: August 7, 2025*  
-*Category: Opinion, Software Development, AI*
-
 ## The Productivity Revolution You're Already Living Through
 
 I've been thinking a lot lately about how LLMs have changed my day-to-day work as an engineer. Not in some dramatic, sci-fi way where robots are writing entire applications (though wouldn't that be something?), but in the mundane, practical sense that actually matters. They've become my digital sticky notes – except these sticky notes can write code, explain complex concepts, and help me think through problems faster than I ever could alone.

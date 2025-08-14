@@ -20,7 +20,7 @@ const portfolioData = {
         {
             id: 1,
             title: "Insights",
-            description: "My thoughts covering software engineering, leadership insights, project updates, and explorations with LLMs and emerging technologies.",
+            description: "Sharing some of my thoughts on software engineering, leadership insights, project updates, and explorations with LLMs and emerging technologies.",
             image: "img/blog_hero.png",
             technologies: ["Writing", "Leadership", "Software Engineering", "LLMs"],
             liveUrl: "/insights.html",
