@@ -6,7 +6,7 @@ const posts = {
       "description": "My thoughts on LLM usage to increase developer productivity",
       "category": "LLM Usage",
       "date": "2025-08-08",
-      "readTime": "6 min read",
+      "readTime": "7 min read",
       "tags": ["LLM", "Development", "Productivity"],
       "file": "llms-usage.md",
       "featured": true
@@ -28,7 +28,7 @@ const posts = {
       "description": "How to host a simple static site using google cloud",
       "category": "Technical",
       "date": "2025-08-06",
-      "readTime": "6 min read",
+      "readTime": "10 min read",
       "tags": ["Technology", "Cloud", "Google"],
       "file": "static-site-with-google.md",
       "featured": false
