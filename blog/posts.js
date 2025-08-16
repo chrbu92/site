@@ -43,6 +43,17 @@ const posts = {
       "tags": ["LLM", "Development", "Productivity"],
       "file": "create-artifacts.md",
       "featured": true
+    },
+    {
+      "id": "lead-through-action",
+      "title": "Lead Through Action",
+      "description": "Leadership is what you do - not a job title. Use your knowledge and skills to solve problems proactively, elevate your teammates, and drive positive change from wherever you sit in the organization.",
+      "category": "Leadership",
+      "date": "2025-08-16",
+      "readTime": "5 min read",
+      "tags": ["LLM", "Development", "Productivity"],
+      "file": "lead-through-action.md",
+      "featured": true
     }
   ],
   "categories": [
