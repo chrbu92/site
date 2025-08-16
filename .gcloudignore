@@ -2,7 +2,8 @@
 .github/
 .gitignore
 README.md
-*.md
+CDN_SETUP.md
+blogposts.md
 node_modules/
 .DS_Store
 gha-creds-*
