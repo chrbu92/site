@@ -17,12 +17,24 @@ class Portfolio {
     }
 
     setupLoading() {
+        // Check if user has already seen the loading animation in this session
+        const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
+        const loadingScreen = document.getElementById('loading-screen');
+        
+        if (hasSeenLoading) {
+            // Skip animation - hide loading screen immediately
+            loadingScreen.style.display = 'none';
+            return;
+        }
+
+        // First time seeing the loading screen - show animation
         window.addEventListener('load', () => {
             setTimeout(() => {
-                const loadingScreen = document.getElementById('loading-screen');
                 loadingScreen.classList.add('fade-out');
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
+                    // Mark that user has seen the loading animation
+                    sessionStorage.setItem('hasSeenLoading', 'true');
                 }, 500);
             }, 2000);
         });
@@ -170,10 +182,10 @@ class Portfolio {
             <div class="project-image">
                 <img src="${project.image}" alt="${project.title}">
                 <div class="project-overlay">
-                    ${project.githubUrl ? `<a href="${project.githubUrl}" class="btn btn-secondary" target="_blank">
+                    ${project.githubUrl ? `<a href="${project.githubUrl}" class="btn btn-secondary">
                         <i class="fab fa-github"></i> Code
                     </a>` : ''}
-                    ${project.liveUrl ? `<a href="${project.liveUrl}" class="btn btn-primary" target="_blank">
+                    ${project.liveUrl ? `<a href="${project.liveUrl}" class="btn btn-primary">
                         <i class="fas fa-external-link-alt"></i> ${project.linkText || "Live Demo"}
                     </a>` : ''}
                 </div>
@@ -216,7 +228,7 @@ class Portfolio {
             </div>
             <div class="project-content">
                 <h3 class="project-title">More Projects Coming Soon</h3>
-                <p class="project-description">Additional featured projects and code samples are currently under development. Check back soon!</p>
+                <p class="project-description">I've mostly written for work and don't yet have a public portfolio.  I'm developing several ideas and hope to have something worth looking at in the near future - Check back soon!</p>
                 <div class="project-technologies">
                     <span class="project-tech">In Progress</span>
                 </div>
@@ -270,10 +282,8 @@ class Portfolio {
         const sortedExperiences = [...experiences].sort((b,a) => {
             return a.id.localeCompare(b.id);
         });
-        console.log(sortedExperiences);
 
         sortedExperiences.forEach((exp, index) => {
-            console.log(exp.id);
             const timelineItem = this.createTimelineItem(exp);
             timelineItem.style.animationDelay = `${index * 0.05}s`;
             branch.appendChild(timelineItem);
@@ -575,16 +585,14 @@ const easterEggs = {
             text: 'color: #cbd5e1; font-size: 14px;'
         };
 
-        console.log('%c👋 Hello, fellow developer!', styles.title);
-        console.log('%cI see you\'re checking out the console. Nice!', styles.subtitle);
         console.log('%cFeel free to explore the code on GitHub:', styles.text);
-        console.log('%chttps://github.com/your-username/portfolio', 'color: #3b82f6;');
+        console.log('%chttps://github.com/chrbu92/site', 'color: #3b82f6;');
         console.log('%c\nPS: Try the Konami code for a surprise! ↑↑↓↓←→←→BA', styles.text);
     },
 
     setupClickEffects() {
         document.addEventListener('click', (e) => {
-            if (Math.random() < 0.1) { // 10% chance
+            if (Math.random() < 0.6) {
                 this.createClickEffect(e.clientX, e.clientY);
             }
         });
@@ -673,8 +681,70 @@ const easterEggs = {
         setTimeout(() => {
             clearInterval(interval);
             matrixOverlay.remove();
-            alert('🎉 Matrix mode activated! You found the easter egg!');
+            this.showMatrixModal();
         }, 5000);
+    },
+
+    showMatrixModal() {
+        // Remove any existing modal
+        const existingModal = document.querySelector('.matrix-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        const modal = document.createElement('div');
+        modal.className = 'matrix-modal';
+        modal.innerHTML = `
+            <div class="matrix-modal-backdrop">
+                <div class="matrix-modal-content">
+                    <div class="matrix-modal-body">
+                        <p class="matrix-quote">💊 What if I told you software has no perfect state of completion, it's a garden that must be constantly tended.</p>
+                        <div class="matrix-modal-buttons">
+                            <button class="matrix-btn matrix-btn-primary" id="matrix-read-more">
+                                <i class="fas fa-external-link-alt"></i> Read More
+                            </button>
+                            <button class="matrix-btn matrix-btn-secondary" id="matrix-ok">
+                                Got it
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Add event listeners
+        const readMoreBtn = modal.querySelector('#matrix-read-more');
+        const okBtn = modal.querySelector('#matrix-ok');
+        const backdrop = modal.querySelector('.matrix-modal-backdrop');
+
+        const closeModal = () => {
+            modal.classList.add('closing');
+            setTimeout(() => modal.remove(), 300);
+        };
+
+        readMoreBtn.addEventListener('click', () => {
+            window.open('https://blog.codinghorror.com/tending-your-software-garden/', '_blank');
+            closeModal();
+        });
+
+        okBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', (e) => {
+            if (e.target === backdrop) closeModal();
+        });
+
+        // Close on escape key
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+
+        // Animate in
+        setTimeout(() => modal.classList.add('show'), 10);
     }
 };
 
@@ -682,6 +752,4 @@ const easterEggs = {
 document.addEventListener('DOMContentLoaded', () => {
     new Portfolio();
     easterEggs.init();
-    
-    console.log('%c🚀 Portfolio loaded successfully!', 'color: #10b981; font-size: 16px; font-weight: bold;');
 });
