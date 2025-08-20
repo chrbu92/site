@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Sean Bulloss - Resume</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            font-size: 11pt;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 8.5in;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            border-radius: 2px;
+        }
+
+        .name {
+            font-size: 28pt;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info {
+            font-size: 10.5pt;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-weight: 500;
+        }
+
+        .contact-info span {
+            position: relative;
+        }
+
+        .contact-info span:not(:last-child)::after {
+            content: '•';
+            position: absolute;
+            right: -1rem;
+            color: #cbd5e0;
+        }
+
+        .summary-statement {
+            font-style: italic;
+            color: #4a5568;
+            margin: 1rem auto;
+            font-size: 11pt;
+            max-width: 600px;
+            font-weight: 500;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+            border-radius: 2px;
+        }
+
+        /* Experience entries */
+        .experience-entry {
+            margin-bottom: 1.75rem;
+            page-break-inside: avoid;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-entry:hover {
+            border-left-color: #3b82f6;
+            transform: translateX(2px);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .company-position {
+            flex: 1;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 12pt;
+            color: #1e40af;
+            margin-bottom: 0.25rem;
+        }
+
+        .position {
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 11pt;
+        }
+
+        .dates-location {
+            text-align: right;
+            font-size: 10pt;
+            color: #64748b;
+            white-space: nowrap;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        .description {
+            margin: 0.75rem 0;
+            font-size: 10.5pt;
+            color: #4a5568;
+            font-style: italic;
+        }
+
+        .achievements {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .achievements li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 10.5pt;
+            line-height: 1.6;
+        }
+
+        .achievements li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        /* Education and Activities */
+        .education-entry, .activity-entry {
+            margin-bottom: 1.25rem;
+            background: #f8fafc;
+            padding: 1.25rem;
+            border-radius: 6px;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 0.25rem;
+        }
+
+        .institution {
+            font-weight: 700;
+            color: #1e40af;
+            font-size: 11pt;
+        }
+
+        /* Summary section special styling */
+        .section:first-of-type p {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            font-size: 11pt;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                font-size: 9pt;
+                background: white !important;
+                line-height: 1.4;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 0.4in;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .header {
+                margin-bottom: 1rem;
+                page-break-after: avoid;
+            }
+            
+            .header::after {
+                display: none;
+            }
+            
+            .name {
+                font-size: 20pt;
+                color: #1e40af !important;
+                -webkit-text-fill-color: #1e40af !important;
+                margin-bottom: 0.25rem;
+            }
+            
+            .contact-info {
+                font-size: 9pt;
+                gap: 1rem;
+            }
+            
+            .summary-statement {
+                margin: 0.5rem auto;
+                font-size: 9.5pt;
+            }
+            
+            .section {
+                margin-bottom: 1rem;
+                page-break-inside: avoid;
+            }
+            
+            .section-title {
+                font-size: 13pt;
+                margin-bottom: 0.75rem;
+                padding-left: 0.75rem;
+            }
+            
+            .section-title::before {
+                width: 3px;
+            }
+            
+            /* Flatten cards for print */
+            .experience-entry, .education-entry, .activity-entry {
+                background: white !important;
+                border: none !important;
+                border-left: 2px solid #e2e8f0 !important;
+                padding: 0.75rem 0 0.75rem 1rem !important;
+                margin-bottom: 1rem !important;
+                border-radius: 0 !important;
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            .experience-entry:hover {
+                transform: none !important;
+            }
+            
+            .job-header {
+                margin-bottom: 0.5rem;
+            }
+            
+            .company {
+                font-size: 11pt;
+                margin-bottom: 0.1rem;
+            }
+            
+            .position {
+                font-size: 10pt;
+            }
+            
+            .dates-location {
+                font-size: 9pt;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+            
+            .description {
+                margin: 0.5rem 0;
+                font-size: 9.5pt;
+            }
+            
+            .achievements {
+                margin: 0.5rem 0;
+            }
+            
+            .achievements li {
+                margin-bottom: 0.3rem;
+                font-size: 9.5pt;
+                line-height: 1.4;
+                padding-left: 1rem;
+            }
+            
+            .achievements li:before {
+                font-size: 10pt;
+            }
+            
+            .degree {
+                font-size: 10pt;
+            }
+            
+            .institution {
+                font-size: 10pt;
+            }
+            
+            /* Summary section adjustments */
+            .section:first-of-type p {
+                background: none !important;
+                border: 1px solid #e2e8f0 !important;
+                padding: 0.75rem !important;
+                font-size: 9.5pt;
+                line-height: 1.5;
+            }
+            
+            /* Technical skills adjustments */
+            .section:nth-of-type(2) div {
+                background: none !important;
+                border: 1px solid #e2e8f0 !important;
+                padding: 0.75rem !important;
+            }
+            
+            .section:nth-of-type(2) div div {
+                margin-bottom: 0.5rem !important;
+                font-size: 9.5pt;
+                border: none !important;
+                padding: 0 !important;
+            }
+            
+            /* Page break management */
+            .section:nth-of-type(3) { /* Work History */
+                page-break-before: auto;
+            }
+            
+            .section:last-child {
+                page-break-inside: auto;
+            }
+            
+            /* Smart page break management */
+            .job-header {
+                page-break-after: avoid;
+            }
+            
+            .achievements {
+                orphans: 2;
+                widows: 2;
+            }
+            
+            .achievements li {
+                page-break-inside: avoid;
+            }
+            
+            /* Try to keep Activities & Awards together */
+            .section:last-child {
+                page-break-inside: avoid !important;
+                page-break-before: auto !important;
+                orphans: 10 !important;
+                widows: 10 !important;
+            }
+            
+            .section:last-child * {
+                page-break-inside: avoid !important;
+            }
+            
+            .activity-entry {
+                page-break-inside: avoid !important;
+                page-break-after: avoid !important;
+                margin-bottom: 0.5rem !important;
+                padding: 0.5rem 0 0.5rem 0.75rem !important;
+            }
+            
+            /* Make Activities section more compact for better page fitting */
+            .section:last-child .activity-entry .achievements {
+                margin: 0.25rem 0 !important;
+            }
+            
+            .section:last-child .activity-entry .achievements li {
+                margin-bottom: 0.2rem !important;
+                font-size: 9pt !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* Ensure content doesn't get cut off */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .job-header {
+                flex-direction: column;
+            }
+            
+            .dates-location {
+                text-align: left;
+                margin-top: 0.25em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name">Christian Sean Bulloss</h1>
+            <div class="contact-info">
+                <span>cbulloss@gmail.com</span>
+                <span>(540) 842-0377</span>
+                <span>Youngsville, NC 27596</span>
+            </div>
+            <p class="summary-statement">
+                Diversely experienced, quality focused, and process driven software development professional seeking new opportunities
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Summary</h2>
+            <p>Engineering Manager with 10+ years building aviation, fintech, and enterprise software. Proven record leading high-performing teams and delivering mission-critical applications to 200K+ users. Experienced in full-stack development, cloud architecture, and technical mentorship with a track record of growing teams and shipping complex products.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div style="background: #f8fafc; padding: 1.25rem; border-radius: 6px; border-left: 3px solid #e2e8f0;">
+                <div style="margin-bottom: 0.75rem;"><strong>Languages/Frameworks:</strong> Java (Spring Boot), C# (.NET Core), JavaScript (React, Node.js), TypeScript, Python, SQL</div>
+                <div style="margin-bottom: 0.75rem;"><strong>Cloud/Infrastructure:</strong> AWS (RDS, S3, CloudFront, IAM, R53, SNS/SQS, CDK), Google Cloud, Docker, CI/CD, Redis, TeamCity, Jenkins, GitHub/Actions</div>
+                <div><strong>Leadership/Other:</strong> Team management, technical mentoring, aviation regulations (FAA/EASA/TCCA), test design & automation, agile development, automation, LLM Usage</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-entry">
+                <div class="education-header">
+                    <div>
+                        <div class="institution">Virginia Tech</div>
+                        <div class="degree">B.S. Business Information Technology – Decision Support Systems</div>
+                    </div>
+                    <div class="dates-location">May 2014</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Work History</h2>
+            
+            <div class="experience-entry">
+                <div class="job-header">
+                    <div class="company-position">
+                        <div class="company">ForeFlight</div>
+                        <div class="position">Engineering Manager</div>
+                    </div>
+                    <div class="dates-location">
+                        Feb 2025 - Present<br>
+                        Austin, TX (Remote)
+                    </div>
+                </div>
+                <p class="description">Leading engineering excellence across diverse aviation applications serving general aviation community</p>
+                <ul class="achievements">
+                    <li>Direct 8-person engineering team responsible for mission-critical aviation applications including flight logging, airport pricing, pilot community features, and regulatory database management</li>
+                    <li>Drive individual career development through structured mentorship programs, pairing senior developers with emerging talent to accelerate team capabilities</li>
+                    <li>Orchestrate cross-functional collaboration with Product Management and Mobile Engineering teams, ensuring seamless technical integration and aligned product roadmaps</li>
+                    <li>Establish engineering standards and best practices across all projects, emphasizing maintainable code architecture, comprehensive testing, and sustainable development practices</li>
+                    <li>Lead adoption of AI development tools across engineering workflows, leveraging LLM capabilities to accelerate development cycles and improve code quality while maintaining engineering rigor</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="job-header">
+                    <div class="company-position">
+                        <div class="company">ForeFlight</div>
+                        <div class="position">Software Engineer</div>
+                    </div>
+                    <div class="dates-location">
+                        Sep 2022 - Feb 2025<br>
+                        Austin, TX (Remote)
+                    </div>
+                </div>
+                <p class="description">Full-stack aviation software development (Promoted to Senior Software Engineer January 2024)</p>
+                <ul class="achievements">
+                    <li>Architected flight logging platform serving 200K+ monthly users with regulatory compliance reporting for FAA, EASA, and Transport Canada certification requirements</li>
+                    <li>Built scalable analytics engine processing millions of flight entries for real-time currency tracking, route analysis, and aviation training progress monitoring</li>
+                    <li>Engineered full-stack architecture with React frontend, Express middleware, and Spring Boot backend using reactive programming for high-volume data processing</li>
+                    <li>Led infrastructure modernization from EC2/CloudFormation to Fargate/CDK, implementing automated deployment pipelines and cloud-native architecture patterns</li>
+                    <li>Grew development team from individual contributor to managing 4 full-stack developers, establishing mentorship practices and collaborative workflows</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="job-header">
+                    <div class="company-position">
+                        <div class="company">TigerRisk Partners, LLC</div>
+                        <div class="position">Application Developer / QA Automation Engineer</div>
+                    </div>
+                    <div class="dates-location">
+                        Oct 2020 - Sep 2022<br>
+                        Remote
+                    </div>
+                </div>
+                <p class="description">Full-stack development and quality assurance for insurance technology solutions</p>
+                <ul class="achievements">
+                    <li>Delivered enterprise insurance applications using .NET stack (C#, ASP.NET Core, Angular, TypeScript) while contributing to agile planning and user story implementation</li>
+                    <li>Modernized legacy web API from .NET Framework to .NET 6, improving performance and maintainability across insurance analytics platform</li>
+                    <li>Established comprehensive testing framework combining automated UI testing (Cypress) with API validation, integrating security scanning into CI/CD pipeline</li>
+                    <li>Served as Scrum Master for cross-functional team, facilitating agile ceremonies and removing development blockers while maintaining development responsibilities</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry" style="margin-bottom: 1rem;">
+                <div class="job-header">
+                    <div class="company-position">
+                        <div class="company">Law Enforcement & Public Safety</div>
+                        <div class="position">Police Officer / Public Safety Officer</div>
+                    </div>
+                    <div class="dates-location">
+                        Aug 2017 - Oct 2020<br>
+                        Wake Forest & Butner, NC
+                    </div>
+                </div>
+                <ul class="achievements">
+                    <li>Developed crisis management, decision-making under pressure, and communication skills — strengths applied in technical leadership roles</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="job-header">
+                    <div class="company-position">
+                        <div class="company">Ipreo US, LLC (Now part of S&P Global)</div>
+                        <div class="position">Software Engineer, QA Engineer</div>
+                    </div>
+                    <div class="dates-location">
+                        May 2016 - July 2017<br>
+                        Raleigh, NC
+                    </div>
+                </div>
+                <p class="description">Financial technology development with emphasis on automated testing innovation</p>
+                <ul class="achievements">
+                    <li>Built full-stack financial applications while pioneering test automation improvements including randomized data generation and page object model implementation</li>
+                    <li>Balanced development responsibilities with comprehensive quality assurance, creating systematic approaches to requirements analysis and test documentation</li>
+                </ul>
+            </div>
+
+            <div class="experience-entry">
+                <div class="job-header">
+                    <div class="company-position">
+                        <div class="company">Harmonia Holdings Group, LLC</div>
+                        <div class="position">Software Engineer</div>
+                    </div>
+                    <div class="dates-location">
+                        Oct 2014 - May 2016<br>
+                        Blacksburg, VA
+                    </div>
+                </div>
+                <p class="description">Government contracting software development emphasizing process excellence</p>
+                <ul class="achievements">
+                    <li>Delivered mission-critical software solutions in highly regulated environment, mastering rigorous documentation standards and compliance requirements</li>
+                    <li>Innovated automated testing approaches by independently developing REST API test harness, improving testing efficiency and reliability</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Activities & Awards</h2>
+            
+            <div class="activity-entry">
+                <div class="education-header">
+                    <div>
+                        <div class="institution">Blacksburg Volunteer Rescue Squad</div>
+                        <div class="degree">2nd Lt. - Information Technology, Volunteer EMT</div>
+                    </div>
+                    <div class="dates-location">Feb '11 - Jun '16</div>
+                </div>
+                <ul class="achievements">
+                    <li>Led organizational IT strategy and incident command operations while volunteering 8,000+ hours in EMS</li>
+                    <li>Designed technology infrastructure for new facility, including iPad deployment across fleet vehicles</li>
+                    <li>Provided field training for new EMTs with technical rescue certifications (vehicle extrication, swift water, high angle)</li>
+                </ul>
+            </div>
+
+            <div class="activity-entry">
+                <div class="education-header">
+                    <div>
+                        <div class="degree">Boy Scouts of America: Eagle Scout</div>
+                    </div>
+                    <div class="dates-location">Feb 2009</div>
+                </div>
+            </div>
+
+            <div class="activity-entry">
+                <div class="education-header">
+                    <div>
+                        <div class="degree">Vance Granville Community College: BLET Academic Achievement Award</div>
+                    </div>
+                    <div class="dates-location">December 2017</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

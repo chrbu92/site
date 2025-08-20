@@ -14,6 +14,7 @@ class Portfolio {
         this.setupTimeline();
         this.setupAnimations();
         this.setupCounters();
+        this.setupResume();
     }
 
     setupLoading() {
@@ -515,6 +516,114 @@ class Portfolio {
             }, { threshold: 0.5 });
 
             counterObserver.observe(aboutSection);
+        }
+    }
+
+    setupResume() {
+        const resumeDropdown = document.querySelector('.resume-dropdown');
+        const resumeBtn = document.querySelector('.resume-btn');
+        const viewResumeModal = document.getElementById('view-resume-modal');
+        const viewInteractiveExperience = document.getElementById('view-interactive-experience');
+
+        if (!resumeDropdown || !resumeBtn || !viewResumeModal || !viewInteractiveExperience) return;
+
+        // Toggle dropdown
+        resumeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            resumeDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            resumeDropdown.classList.remove('active');
+        });
+
+        // Prevent dropdown from closing when clicking inside options
+        resumeDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Handle view resume modal
+        viewResumeModal.addEventListener('click', () => {
+            this.createResumeModal();
+            resumeDropdown.classList.remove('active');
+        });
+
+        // Handle interactive experience
+        viewInteractiveExperience.addEventListener('click', () => {
+            this.scrollToExperience();
+            resumeDropdown.classList.remove('active');
+        });
+    }
+
+    createResumeModal() {
+        // Remove existing modal if any
+        const existingModal = document.querySelector('.resume-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        const modal = document.createElement('div');
+        modal.className = 'resume-modal';
+        modal.innerHTML = `
+            <div class="resume-modal-backdrop">
+                <div class="resume-modal-content">
+                    <div class="resume-modal-header">
+                        <h2>Resume - Christian Sean Bulloss</h2>
+                        <button class="resume-modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="resume-modal-body">
+                        <iframe src="/christian-bulloss-resume.html" title="Resume"></iframe>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Add event listeners
+        const backdrop = modal.querySelector('.resume-modal-backdrop');
+        const closeBtn = modal.querySelector('.resume-modal-close');
+
+        const closeModal = () => {
+            modal.classList.add('closing');
+            setTimeout(() => modal.remove(), 300);
+        };
+
+        backdrop.addEventListener('click', (e) => {
+            if (e.target === backdrop) closeModal();
+        });
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close on escape key
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleEscape);
+            }
+        };
+        document.addEventListener('keydown', handleEscape);
+
+        // Animate in
+        setTimeout(() => modal.classList.add('show'), 10);
+    }
+
+    scrollToExperience() {
+        const experienceSection = document.getElementById('experience');
+        if (experienceSection) {
+            const offsetTop = experienceSection.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+            
+            // Add a subtle highlight effect to the experience section
+            experienceSection.classList.add('highlight-section');
+            setTimeout(() => {
+                experienceSection.classList.remove('highlight-section');
+            }, 2000);
         }
     }
 }
