@@ -28,16 +28,16 @@ const portfolioData = {
             featured: true,
             isBlog: true
         },
-        // {
-        //     id: 2,
-        //     title: "E-Commerce Platform",
-        //     description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product management, and order processing.",
-        //     image: "https://via.placeholder.com/600x400/1e293b/3b82f6?text=E-Commerce+Platform",
-        //     technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
-        //     githubUrl: "https://github.com/your-username/ecommerce-platform",
-        //     liveUrl: "https://your-ecommerce-demo.com",
-        //     featured: true
-        // },
+        {
+            id: 2,
+            title: "Aviation Registration Tracker",
+            description: "Spring boot app serving analytics based on FAA Registration Data.  Uses google cloud job to periodically fetch data from the FAA.  This app scales to zero, so your first request might take some time to respond.",
+            image: "/img/avreg.png",
+            technologies: ["PostgreSQL", "Spring Boot", "Google Cloud Run", "GitHub Actions"],
+            githubUrl: "https://github.com/chrbu92/avreg",
+            liveUrl: "/api/swagger-ui/index.html",
+            featured: true
+        },
         // {
         //     id: 2,
         //     title: "Task Management App",
