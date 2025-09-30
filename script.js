@@ -6,6 +6,7 @@ class Portfolio {
     }
 
     init() {
+        this.warmupAPI();
         this.setupLoading();
         this.setupNavigation();
         this.setupParticleNetwork();
@@ -16,6 +17,10 @@ class Portfolio {
         this.setupAnimations();
         this.setupCounters();
         this.setupResume();
+    }
+
+    warmupAPI() {
+        fetch('/api/admin/health').catch(() => {});
     }
 
     setupLoading() {
