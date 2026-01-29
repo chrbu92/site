@@ -35,7 +35,7 @@ const portfolioData = {
             image: "/img/avreg.png",
             technologies: ["PostgreSQL", "Spring Boot", "Google Cloud Run", "GitHub Actions"],
             githubUrl: "https://github.com/chrbu92/avreg",
-            liveUrl: "/api/swagger-ui/index.html",
+//            liveUrl: "/api/swagger-ui/index.html",
             featured: true
         },
         // {
