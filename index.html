@@ -58,7 +58,7 @@
             </div>
             <div class="nav-menu">
                 <a href="#about" class="nav-link">.about()</a>
-                <a href="#projects" class="nav-link">.projects()</a>
+                <!-- <a href="#projects" class="nav-link">.projects()</a> -->
                 <a href="#experience" class="nav-link">.experience()</a>
                 <a href="#contact" class="nav-link">.contact()</a>
             </div>
@@ -169,7 +169,7 @@
                 </h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content">
+            <div class="about-content" style="grid-template-columns: 1fr;">
                 <div class="about-text">
                     <p>
                         I'm a dedicated engineer who enjoys solving real problems and bringing joy to users. My tech journey 
@@ -191,6 +191,9 @@
                         </div>
                     </div>
                 </div>
+                <!--
+                Stats hidden until updated. The "Bugs Fixed" counter was rendering NaN,
+                and the other figures need fresh numbers before going back up.
                 <div class="about-stats">
                     <div class="stat-card">
                         <div class="stat-icon">
@@ -220,11 +223,16 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
+    <!--
+    Hidden for now: writings are outdated and the featured project is not currently working.
+    Restore by uncommenting this section, the .projects() nav link above, and renumbering
+    the section numbers below (Experience back to 03., Contact back to 04.).
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
@@ -235,8 +243,7 @@
                 <div class="section-line"></div>
             </div>
             <div class="projects-grid" id="projects-grid">
-
-                <!-- Projects will be populated by JavaScript -->
+                Projects will be populated by JavaScript
             </div>
             <div class="projects-footer">
                 <a href="https://github.com/chrbu92" class="btn btn-outline" target="_blank">
@@ -246,13 +253,14 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Experience Timeline -->
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
-                    <span class="section-number">03.</span>
+                    <span class="section-number">02.</span>
                     Work Experience
                 </h2>
                 <div class="section-line"></div>
@@ -307,7 +315,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
-                    <span class="section-number">04.</span>
+                    <span class="section-number">03.</span>
                     Get In Touch
                 </h2>
                 <div class="section-line"></div>

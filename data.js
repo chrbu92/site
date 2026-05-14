@@ -186,7 +186,6 @@ const portfolioData = {
                     "Scaled development team from individual contributor to four full-stack developers",
                     "Mentored junior developers and led technical project planning and stakeholder coordination",
                     "Collaborated closely with product managers to define requirements and deliver user-centered solutions",
-                    "Promoted to Senior Software Engineer in 2024 for technical leadership and team development contributions."
                 ],
                 technologies: ["React", "Java", "Spring Boot", "PostgreSQL", "AWS", "S3", "RDS", "CloudFront", "EC2", "CDK", "Redis"],
                 type: "work"
@@ -198,14 +197,13 @@ const portfolioData = {
                 startDate: "2025-02",
                 endDate: "present",
                 location: "Austin, TX (Remote)",
-                description: "Lead engineering excellence across the Personal Aviation team, managing 8 engineers across diverse application portfolios. Drive strategic technical decisions while fostering team growth and delivering high-impact solutions.",
+                description: "Lead a full-stack engineering team building flight logging, checklists, airport pricing, and pilot community features. Spend most of my energy on coaching engineers, scoping projects with Product, and keeping the platform reliable.",
                 achievements: [
-                    "Manage cross-functional team of 8 engineers across multiple aviation applications",
-                    "Conduct regular 1-on-1s focused on career development and performance optimization",
-                    "Lead project management initiatives ensuring proper scope definition and delivery timelines",
-                    "Develop and implement team assignment strategies maximizing individual strengths and project outcomes",
-                    "Drive technical architecture decisions balancing project needs with reliability, scalability, and timeline",
-                    "Foster collaborative culture promoting knowledge sharing and continuous improvement"
+                    "Promoted three engineers (two to Senior level) through stretch assignments and targeted coaching",
+                    "Built an engineering metrics dashboard pulling GitHub and Jira data — used it to catch an underperformance trend early and turn it around through coaching, not escalation",
+                    "Partnered with Product to steer a major feature from a 6-month estimate to 3-month delivery by deferring non-essential scope; now drives organic user growth in the Logbook app",
+                    "Define SLOs across 8 microservices and lead incident response — sustaining 99.99% uptime",
+                    "Drove early Claude Code adoption through a structured pilot and designed a custom architectural PR-review workflow focused on system-level concerns instead of line-level nits"
                 ],
                 technologies: ["Leadership", "Project Management", "Technical Strategy", "Career Development", "Team Building", "Agile"],
                 type: "work"
@@ -273,8 +271,8 @@ const portfolioData = {
                 achievements: [
                     "Private Pilot License, 2022",
                     "Instrument Rating, 2023",
-                    "Commercial Rating, 2025? 🤞",
-                    "240 hours Total Time"
+                    "Commercial Rating, coming soon!",
+                    "260 hours Total Time"
                 ],
                 technologies: ["PA-28", "PA-38", "C172"],
                 type: "personal"
